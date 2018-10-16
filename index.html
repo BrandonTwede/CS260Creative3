@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Whack-a-Mole!</title>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-resource.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+        <script src="project3.js"></script>
+        <link rel="stylesheet" type="text/css" href="project3.css"/>
+    
+    </head>
+    <body ng-app="WhackAMole" ng-controller="MainCtrl">
+
+        <div class="site-container">
+            <div class="page-header">
+              <h1>Whack-a-Mole</h1>
+            </div>
+            <div class="game">
+                <div class="gameInfo">
+                    <input type="button" value="Start Game" ng-click="startGame()" ng-disabled="buttonDisabled()"/>
+                    <p><b>Time Remaining:</b>{{time}}</p>
+                    <p><b>Score:</b>{{score}}</p>
+                </div>
+                <div class="gameboard" >
+                    <img src="mole.png" ng-repeat="mole in moles" ng-show="showMole($index)" ng-hide="hideMole($index)" class="mole ng-hide occupy-space" ng-mousedown="moleClick($index)"/>
+                </div>
+            </div>  
+        </div>
+    </body>
+</html>
